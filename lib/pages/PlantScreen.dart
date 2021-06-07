@@ -1,15 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CloudScreen extends StatelessWidget {
+class PlantScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            'Cloud',
+            'Plant',
             style: TextStyle(fontSize: 16),
           ),
         ),
-        body: Center(child: Icon(Icons.cloud)));
+        body: Center(child: Icon(Icons.book)));
   }
 }

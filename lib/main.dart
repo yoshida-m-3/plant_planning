@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import './pages/BookScreen.dart';
-import './pages/CloudScreen.dart';
-import './pages/CakeScreen.dart';
+import './pages/PlantScreen.dart';
+import './pages/HistoryScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,16 +37,12 @@ class _MyHomePageState extends State<MyHomePage>
   List<BottomNavigationBarItem> myBottomNavBarItems() {
     return [
       BottomNavigationBarItem(
-        icon: Icon(Icons.book),
-        label: 'Book',
+        icon: Icon(Icons.park),
+        label: 'Plant',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.cloud),
-        label: 'Cloud',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.cake),
-        label: 'Cake',
+        icon: Icon(Icons.history),
+        label: 'History',
       ),
     ];
   }
@@ -73,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'BottomNav',
+          'Plant Planning',
           style: TextStyle(fontSize: 16),
         ),
       ),
@@ -89,9 +84,8 @@ class _MyHomePageState extends State<MyHomePage>
           },
           // ページ下部のナビゲーションメニューに相当する各ページビュー
           children: [
-            BookScreen(),
-            CloudScreen(),
-            CakeScreen(),
+            PlantScreen(),
+            HistoryScreen(),
           ]),
       // ページ下部のナビゲーションメニュー
       bottomNavigationBar: BottomNavigationBar(
