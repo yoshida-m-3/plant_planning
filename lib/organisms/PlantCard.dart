@@ -2,14 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlantCard extends StatelessWidget {
+  final Icon leadingIcon;
+  final String name;
+
+  PlantCard(this.leadingIcon, this.name);
+
   @override
   Widget build(BuildContext context) {
     return Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          const ListTile(
-            leading: Icon(Icons.album),
-            title: Text('みかん'),
+          ListTile(
+            leading: leadingIcon,
+            title: Text(name),
           ),
           Row(
             children: <Widget>[
