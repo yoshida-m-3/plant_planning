@@ -4,8 +4,18 @@ import 'package:plant_planning/organisms/PlantCard.dart';
 
 class PlantScreen extends StatelessWidget {
   final List<Widget> cards = [
-    new PlantCard(Icon(Icons.album), 'みかん'),
-    new PlantCard(Icon(Icons.aod), '栗'),
+    new PlantCard(
+        Icon(Icons.album),
+        'みかん',
+        'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+        new DateTime.now(),
+        '肥料を与える'),
+    new PlantCard(
+        Icon(Icons.aod),
+        '栗',
+        'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+        new DateTime.now(),
+        '枝を剪定する'),
   ];
   @override
   Widget build(BuildContext context) {
