@@ -15,32 +15,44 @@ class PlantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          ListTile(
-            leading: this.leadingIcon,
-            title: Text(this.name),
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                  width: 300.0,
-                  child: Image(
-                    image: NetworkImage(this.imageUrl),
-                    fit: BoxFit.fitHeight,
-                  ))
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Column(children: [
+          Stack(
+            children: [
+              Ink.image(
+                image: NetworkImage(this.imageUrl),
+                height: 240,
+                fit: BoxFit.fill,
+              ),
+              Positioned(
+                bottom: 16,
+                right: 16,
+                left: 16,
+                child: Text(
+                  this.name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              )
             ],
           ),
-          Row(
-            children: <Widget>[
-              const SizedBox(width: 24),
-              Text(DateFormat('MM/dd').format(this.careDate)),
-              const SizedBox(width: 24),
-              Text(this.careText)
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Padding(
+              padding: EdgeInsets.all(16).copyWith(bottom: 0),
+              child: Text(
+                DateFormat('MM/dd').format(this.careDate) + '　' + this.careText,
+                textAlign: TextAlign.start,
+              ),
+            )
+          ]),
+          ButtonBar(
+            alignment: MainAxisAlignment.end,
             children: <Widget>[
               IconButton(
                 icon: const Icon(Icons.edit),
