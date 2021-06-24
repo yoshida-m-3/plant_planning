@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_planning/pages/NewItem.dart';
 import './pages/PlantScreen.dart';
 import './pages/HistoryScreen.dart';
 
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
+      routes: <String, WidgetBuilder>{
+        '/home': (BuildContext context) => new MyHomePage(),
+        '/newItem': (BuildContext context) => new NewItem(),
+      },
     );
   }
 }
@@ -88,6 +93,10 @@ class _MyHomePageState extends State<MyHomePage>
             HistoryScreen(),
           ]),
       // ページ下部のナビゲーションメニュー
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pushNamed('/newItem'),
+        child: const Icon(Icons.mode),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         // 現在のページインデックス
         currentIndex: _screen,
