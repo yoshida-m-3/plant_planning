@@ -11,7 +11,14 @@ class NewItem extends StatelessWidget {
           style: TextStyle(fontSize: 16),
         ),
       ),
-      // body: C
+      body: Column(
+        children: [
+          TextField(
+            decoration:
+                InputDecoration(border: OutlineInputBorder(), labelText: '植物名'),
+          )
+        ],
+      ),
     );
   }
 }
