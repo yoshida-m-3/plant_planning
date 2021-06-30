@@ -13,6 +13,7 @@ class NewItem extends StatelessWidget {
       ),
       body: Column(
         children: [
+          OutlinedButton(onPressed: () {}, child: const Text('植物を選ぶ')),
           TextField(
             decoration:
                 InputDecoration(border: OutlineInputBorder(), labelText: '植物名'),
