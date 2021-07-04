@@ -32,9 +32,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  // ページ切り替え用のコントローラを定義
-  late final PageController _pageController;
-
   // ページインデックス保存用
   int _screen = 0;
 
@@ -53,22 +50,6 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   @override
-  void initState() {
-    super.initState();
-    // コントローラ作成
-    _pageController = PageController(
-      initialPage: _screen,
-    );
-  }
-
-  @override
-  void dispose() {
-    // コントローラ破棄
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -78,15 +59,6 @@ class _MyHomePageState extends State<MyHomePage>
         ),
       ),
       body: PageView(
-          controller: _pageController,
-          // ページ切り替え時に実行する処理
-          // PageViewのonPageChangedはページインデックスを受け取る
-          // 以下ではページインデックスをindexとする
-          onPageChanged: (index) {
-            setState(() {
-              _screen = index;
-            });
-          },
           // ページ下部のナビゲーションメニューに相当する各ページビュー
           children: [
             PlantScreen(),
@@ -96,23 +68,6 @@ class _MyHomePageState extends State<MyHomePage>
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed('/newItem'),
         child: const Icon(Icons.mode),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        // 現在のページインデックス
-        currentIndex: _screen,
-        // onTapでナビゲーションメニューがタップされた時の処理を定義
-        onTap: (index) {
-          setState(() {
-            // ページインデックスを更新
-            _screen = index;
-
-            // ページ遷移を定義
-            // curveで指定できるのは以下
-            _pageController.animateToPage(index,
-                duration: Duration(milliseconds: 300), curve: Curves.easeOut);
-          });
-        },
-        items: myBottomNavBarItems(),
       ),
     );
   }
