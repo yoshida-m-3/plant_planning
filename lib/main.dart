@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_planning/atoms/NotificationButton.dart';
 import 'package:plant_planning/pages/NewItem.dart';
 import './pages/PlantScreen.dart';
 import './pages/HistoryScreen.dart';
@@ -32,23 +33,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  // ページインデックス保存用
-  int _screen = 0;
-
-  // ページ下部に並べるナビゲーションメニューの一覧
-  List<BottomNavigationBarItem> myBottomNavBarItems() {
-    return [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.park),
-        label: 'Plant',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.history),
-        label: 'History',
-      ),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
