@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plant_planning/atoms/NotificationButton.dart';
 import 'package:plant_planning/pages/NewItem.dart';
 import './pages/PlantScreen.dart';
 import './pages/HistoryScreen.dart';
@@ -49,9 +48,10 @@ class _MyHomePageState extends State<MyHomePage>
             HistoryScreen(),
           ]),
       // ページ下部のナビゲーションメニュー
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.of(context).pushNamed('/newItem'),
-        child: const Icon(Icons.mode),
+        icon: const Icon(Icons.mode),
+        label: const Text('新しく植える'),
       ),
     );
   }
